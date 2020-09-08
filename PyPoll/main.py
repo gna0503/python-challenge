@@ -43,5 +43,8 @@ Total Votes: {total_votes}
 Winner: {Winner}
 ------------------------------
 '''
+txtfile_path = os.path.join("analysis","Output.txt")
 
-print(Output)
+f = open(txtfile_path, "w")
+f.write(Output)
+f.close()
