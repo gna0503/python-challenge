@@ -6,7 +6,6 @@ csv_path = os.path.join("Resources","02-Homework_03-Python_Instructions_PyPoll_R
 candidates = []
 candidates_total =[]
 num_rows = 0
-each_total =0
 
 
 with open(csv_path) as csvfile:
@@ -17,16 +16,13 @@ with open(csv_path) as csvfile:
         num_rows += 1
         if row[2] not in candidates:
             candidates.append(row[2])
+            candidates_index = candidates.index(row[2])
+            candidates_total[candidates_index] +=1
+        else:
+            candidates_index = candidates.index(row[2])
+            candidates_total[candidates_index] +=1
             
-         
-for candidate in candidates:
-    if row[2]== candidate:
-        each_total += 1
-    candidates_total[int(candidate.index)] = each_total
 
-
-            
-       
 print(candidates)
 print(candidates_total)
 
