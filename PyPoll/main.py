@@ -26,13 +26,22 @@ with open(csv_path) as csvfile:
 total_votes = sum(candidates_total)
 
 for i in range(len(candidates)):
-    vote_percentage[i] = round(int(candidates_total[i])/int(total_votes)*100,3)
+    vote_percentage[i] = float(round(int(candidates_total[i])/int(total_votes)*100,3))
     
 Winner = candidates[vote_percentage.index(max(vote_percentage))]
             
+Output = f'''
+Election Results
+------------------------------
+Total Votes: {total_votes}
+------------------------------
+{candidates[0]}: {vote_percentage[0]}% ({candidates_total[0]})
+{candidates[1]}: {vote_percentage[1]}% ({candidates_total[1]})
+{candidates[2]}: {vote_percentage[2]}% ({candidates_total[2]})
+{candidates[3]}: {vote_percentage[3]}% ({candidates_total[3]})
+------------------------------
+Winner: {Winner}
+------------------------------
+'''
 
-print(candidates)
-print(candidates_total)
-print(vote_percentage)
-print(Winner)
-
+print(Output)
